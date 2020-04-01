@@ -1,24 +1,22 @@
 class CashRegister
-  attr_accessor :register
-  attr_writer :discount
-  def initialize(register = @total, discount = 0)
-    @register = register
+  attr_accessor :total, :discount, :items, :last_transaction
+
+  def initialize(discount = 0)
     @total = 0
     @discount = discount
+    @items = [ ]
   end
 
-  def total
-    returns total 
+  def add_item(item, price, quantity = 1)
+    self.total += price * quantity
+    quantity.items do
+      items << item
+    end
   end
 
-  def cash_register_with_discount
-  end
+ def void_last_transaction
+   self.total = self.total - self.last_transaction
+ end 
 
-  def checkout(discount = 0)
-  end
-
-#  def apply_discount
-#    total * 0.8
-#  end
 
 end
