@@ -26,9 +26,10 @@ class CashRegister
     #applies the discount to the total price 
     #returns success message with updated total 
     #reduces the total 
-    self.total -= (self.discount.to_f * self.total)
+    #self.total -= (self.discount.to_f * self.total)
+    self.total -= ((self.discount.to_f/100) * self.total)
     if self.discount > 0 
-    "After the discount, the total comes to #{self.total}"
+    "After the discount, the total comes to $#{self.total.to_i}."
     else 
       return "There is no discount to apply."
     end 
